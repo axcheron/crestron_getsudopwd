@@ -7,7 +7,7 @@ Based on [Ricky Lawshae](https://github.com/headlesszeke) discovery on Crestron 
 
 On Crestron **TSW-X60** < 2.001.0037.001 and **MC3** < 1.502.0047.00, the passwords for special sudo accounts may be calculated using information accessible to those with regular user privileges. Attackers could decipher these passwords, which may allow them to execute hidden API calls and escape the CTP console sandbox environment with elevated privileges.
 
-The Crestron Toolbox Protocol (CTP) can be connected to by accessing port **41795** on the TSW-XX60 device. Then, you can use thh `estat` command to get the MAC address of the device:
+The Crestron Toolbox Protocol (CTP) can be connected to by accessing port **41795** on the TSW-XX60 device. Then, you can use the `estat` command to get the MAC address of the device:
 
 ```bash
 $ nc -C w.x.y.z 41795
@@ -62,7 +62,7 @@ $ python3 crestron_getsudopwd.py -m aabbccddeeff
 
 ## Exploiting the CVE-2018-11228
 
-The [CVE-2018-11228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=2018-11228) allows unauthenticated RCE via Bash Shell Service in Crestron Terminal Protocol (*CTP*). After getting the password of the *"crengsuperuser"* hidden account you can get a **root** access on the underlying linux box.
+The [CVE-2018-11228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=2018-11228) allows unauthenticated RCE via Bash Shell Service in Crestron Terminal Protocol (*CTP*). After getting the password of the *"crengsuperuser"* hidden account you can get a **root** access on the underlying Linux box.
 
 ```bash
 $ nc -C w.x.y.z 41795
